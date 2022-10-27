@@ -5,6 +5,8 @@ import { FaSearch } from "react-icons/fa";
 import { FcSpeaker } from "react-icons/fc";
 import "./searchBar.css";
 
+import { StoreContext } from "../../App";
+
 const SearchBox = () => {
   const [data, setData] = useState("");
   const [searchWord, setSearchWord] = useState("");
@@ -14,15 +16,14 @@ const SearchBox = () => {
     setSearchWord(e.target.value.trim());
   };
 
-  const handleSubmit = () => {
-     Axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en_US/${searchWord}`).then(
-      (response) => {
-        setData(response.data[0]);
-        console.log(response)
-      }
-    ); 
-
-    setSearchWord("");
+  const handleSubmit = (e, store) => {
+    e.preventDefault();
+    if (!searchWord) {
+      alert("search term is required");
+    } else {
+      store.updateWord(searchWord);
+      setSearchWord("");
+    }
   };
 
   const handleKeypress = (e) => {
@@ -32,18 +33,22 @@ const SearchBox = () => {
   };
 
   return (
-    <div className="search">
-      <input
-        type="text"
-        value={searchWord}
-        placeholder="Search..."
-        onChange={handleChange}
-        onKeyPress={handleKeypress}
-      />
-      <button onClick={handleSubmit}>
-        <FaSearch size="20px" />
-      </button>
-    </div>
+    <StoreContext.Consumer>
+      {(store) => (
+        <div className="search">
+          <input
+            type="text"
+            value={searchWord}
+            placeholder="Search..."
+            onChange={handleChange}
+            onKeyPress={handleKeypress}
+          />
+          <button onClick={(e) => handleSubmit(e, store)}>
+            <FaSearch size="20px" />
+          </button>
+        </div>
+      )}
+    </StoreContext.Consumer>
   );
 };
 

@@ -1,15 +1,15 @@
 import Home from "./pages/home/Home";
-import {createContext} from "react"
-//import storeInstance from "./store/Store";
+import { createContext } from "react";
+import storeInstance from "./store/store";
 
-const StoreContext = createContext();
+export const StoreContext = createContext();
 
 function App() {
   return (
-    <StoreContext.Provider /* value={storeInstance} */>
-    <div className="App">
-      <Home />
-    </div>
+    <StoreContext.Provider value={storeInstance}>
+      <div className="App">
+        <Home />
+      </div>
     </StoreContext.Provider>
   );
 }
