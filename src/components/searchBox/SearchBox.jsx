@@ -9,33 +9,40 @@ const SearchBox = () => {
   const [data, setData] = useState("");
   const [searchWord, setSearchWord] = useState("");
 
-  function getMeaning() {
-    Axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en_US/${searchWord}`).then(
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchWord(e.target.value.trim());
+  };
+
+  const handleSubmit = () => {
+     Axios.get(`https://api.dictionaryapi.dev/api/v2/entries/en_US/${searchWord}`).then(
       (response) => {
         setData(response.data[0]);
+        console.log(response)
       }
-    );
-    console.log(data);
-  }
+    ); 
+
+    setSearchWord("");
+  };
+
+  const handleKeypress = (e) => {
+    if (e.charCode === 13) {
+      handleSubmit();
+    }
+  };
 
   return (
     <div className="search">
-      <form>
-        <input
-          type="text"
-          placeholder="Search..."
-          onChange={(e) => {
-            setSearchWord(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            getMeaning();
-          }}
-        >
-          <FaSearch size="20px" />
-        </button>
-      </form>
+      <input
+        type="text"
+        value={searchWord}
+        placeholder="Search..."
+        onChange={handleChange}
+        onKeyPress={handleKeypress}
+      />
+      <button onClick={handleSubmit}>
+        <FaSearch size="20px" />
+      </button>
     </div>
   );
 };

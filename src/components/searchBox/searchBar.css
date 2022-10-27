@@ -1,9 +1,17 @@
+.search {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 16px;
+  }
+
 button {
   width: 40px;
   height: 40px;
   vertical-align: 0;
   border-radius: 50%;
-  background-color: #fca311;
+  background-color: lightblue;
   color: #000000;
   margin-left: "10px";
   border-color: transparent;
@@ -14,4 +22,13 @@ button:hover {
 }
 button:focus {
   outline: none;
+}
+
+
+input {
+  border-radius: 20px;
+  box-shadow: inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding: 10px;
+  outline: 0;
 }
