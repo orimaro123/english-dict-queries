@@ -1,0 +1,9 @@
+.top {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  background-color: #82f0ae;
+}

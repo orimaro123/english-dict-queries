@@ -1,13 +1,13 @@
 import SearchBox from "../../components/searchBox/SearchBox";
-import "./home.css";
+import "./top.css";
 
-const Home = () => {
+const Top = () => {
   return (
-    <div className="home">
+    <div className="top">
       <h1>Welcome to dictionary query</h1>
       <SearchBox />
     </div>
   );
 };
 
-export default Home;
+export default Top;
