@@ -22,7 +22,7 @@ const Queries = observer(() => {
     <div>
       {store.currentWord && (
         <div>
-          <QueriesTitle title="Stats" />
+          <QueriesTitle title="Queries statistics" />
           <div>
             Words that start with {letter()} : {store.startLetterCount}
           </div>
