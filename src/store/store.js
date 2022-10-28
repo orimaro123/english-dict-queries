@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-import { wordsArray } from "./dictService";
+import { wordsArray } from "../service/dictService";
 
 class Store {
   wordList = wordsArray;
@@ -19,18 +19,18 @@ class Store {
     return this.currentWord.length;
   }
 
-  get startLetterCount() {
+  startLetterCount() {
     const re = new RegExp(`^${this.currentWord}`);
 
     return this.wordList.filter((d) => re.test(d)).length ?? 0;
   }
 
-  get endLetterCount() {
+  endLetterCount() {
     const re = new RegExp(`${this.currentWord}$`, "i");
     return this.wordList.filter((d) => re.test(d)).length ?? 0;
   }
 
-  get timesIncludedCount() {
+  timesIncludedCount() {
     let counter = 0;
 
     this.wordList.forEach((element) => {
@@ -41,10 +41,15 @@ class Store {
     return counter;
   }
 
-  get repeatedLetterCount() {
-    
-    
-    return 100; //this.wordList.filter((d) => d.match("^.*(.)\\1{1}.*$")).length ?? 0;
+  repeatedLetterCount() {
+    let counter = 0;
+    this.wordList.forEach((element) => {
+      if (element.includes(`${this.currentWord}${this.currentWord}`)) {
+        counter++;
+      }
+    });
+
+    return counter;
   }
 
   constructor() {

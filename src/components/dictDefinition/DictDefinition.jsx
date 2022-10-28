@@ -1,25 +1,23 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import { observer } from "mobx-react";
-import { getDefByWord } from "../../store/dictService";
-import { StoreContext } from "../../App";
+import { getDefByWord } from "../../service/dictService";
+
+import storeInstance from "../../store/store";
 
 import React from "react";
 
 const DictDefinition = observer(() => {
-  const store = useContext(StoreContext);
-
   const updateDefinitions = async (word) => {
     const response = await getDefByWord(word);
     if (!response) {
-      store.updateCurrentDefinition(["failed to request"]);
+      storeInstance.updateCurrentDefinition(["failed to request"]);
     } else if (response.status === 200) {
       const wordDef = response.data[0].meanings[0].definitions[0].definition;
 
       if (Object.keys(wordDef).length > 0) {
-        console.log(wordDef)
-        store.updateCurrentDefinition(wordDef);
+        storeInstance.updateCurrentDefinition(wordDef);
       } else {
-        store.updateCurrentDefinition(["missing definition"]);
+        storeInstance.updateCurrentDefinition(["missing definition"]);
       }
     } else {
       console.log(response);
@@ -27,12 +25,26 @@ const DictDefinition = observer(() => {
   };
 
   useEffect(() => {
-    if (store.currentWord && store.currentWord !== "") {
-      updateDefinitions(store.currentWord);
-      console.log(store)
+    if (storeInstance.currentWord && storeInstance.currentWord !== "") {
+      updateDefinitions(storeInstance.currentWord);
     }
-  }, [store.currentWord]);
-  return <div>{store.currentWordDef}</div>;
+  }, [storeInstance.currentWord]);
+  return (
+    <div>
+      <h2
+        css={{
+          textTransform: "uppercase",
+          color: "#4183f2",
+          fontWeight: 500,
+          letterSpacing: "0.5px",
+          lineHeight: "40px",
+        }}
+      >
+        Definition
+      </h2>
+      <div>{storeInstance.currentWordDef}</div>
+    </div>
+  );
 });
 
 export default DictDefinition;
