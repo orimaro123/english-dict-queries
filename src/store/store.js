@@ -20,14 +20,14 @@ class Store {
   }
 
   startLetterCount() {
-    const re = new RegExp(`^${this.currentWord}`);
+    const wordExpression = new RegExp(`^${this.currentWord}`);
 
-    return this.wordList.filter((d) => re.test(d)).length ?? 0;
+    return this.wordList.filter((word) => wordExpression.test(word)).length ?? 0;
   }
 
   endLetterCount() {
-    const re = new RegExp(`${this.currentWord}$`, "i");
-    return this.wordList.filter((d) => re.test(d)).length ?? 0;
+    const wordExpression = new RegExp(`${this.currentWord}$`, "i");
+    return this.wordList.filter((word) => wordExpression.test(word)).length ?? 0;
   }
 
   timesIncludedCount() {

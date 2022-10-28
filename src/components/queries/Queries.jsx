@@ -1,4 +1,8 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from "@emotion/react";
 import { observer } from "mobx-react";
+import { titleCss } from "../../styles/title";
 
 import storeInstance from "../../store/store";
 
@@ -7,24 +11,17 @@ const Queries = observer(() => {
     <div>
       {storeInstance.currentWord && (
         <div>
-          <h2
-            css={{
-              textTransform: "uppercase",
-              color: "#4183f2",
-              fontWeight: 500,
-              letterSpacing: "0.5px",
-              lineHeight: "40px",
-            }}
-          >
-            Queries
-          </h2>
+          <h2 css={titleCss}>Queries</h2>
           <div>
-            Words that start with {storeInstance.currentWord}:{" "}
+            Words that start with {storeInstance.currentWord}:
             {storeInstance.startLetterCount()}
           </div>
-          <div>Words that end with : {storeInstance.endLetterCount()}</div>
           <div>
-            Times that appears in dictionary: {storeInstance.timesIncludedCount()}
+            {storeInstance.endLetterCount()} words end with "{storeInstance.currentWord}"{" "}
+          </div>
+          <div>
+            {storeInstance.currentWord} appears in dictionary:{" "}
+            {storeInstance.timesIncludedCount()} times
           </div>
           <div>
             Words that have the same letter repeated in conjunction:

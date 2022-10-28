@@ -1,24 +1,29 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
+import { jsx } from "@emotion/react";
 import { observer } from "mobx-react";
 import Queries from "../queries/Queries";
 import storeInstance from "../../store/store";
 
-import { jsx, css } from "@emotion/react";
 import Chart from "../pieChart/PieChart";
 
 const Results = observer(() => {
   return (
     <section
-      css={css`
-        height: 300px;
-        display: flex;
-        padding: 30px;
-        justify-content: center;
-      `}
+      css={{
+        marginTop: "10px",
+        display: "flex",
+        flexDirection: "row",
+        justifyItems: "center",
+        width: "100%",
+
+        "&:hover": {
+          boxShadow: "0 8px 10px 1px rgba(22,0,0,0.9)",
+        },
+      }}
     >
-      <article css={css``}>{storeInstance.currentWord && <Queries />}</article>
-      <Chart />
+      <article>{storeInstance.currentWord && <Queries />}</article>
+      <aside>{storeInstance.currentWord.length > 0 && <Chart />}</aside>
     </section>
   );
 });

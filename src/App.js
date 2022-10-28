@@ -8,10 +8,9 @@ import Top from "./components/top/Top";
 function App() {
   return (
     <div
-      css={css`
-        padding-top: 10px;
-        border: 3px solid red;
-      `}
+      css={{
+    
+      }}
     >
       <Top />
       <Results />

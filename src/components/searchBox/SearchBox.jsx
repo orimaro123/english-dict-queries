@@ -1,7 +1,9 @@
+/** @jsxRuntime classic */
+/** @jsx jsx */
+import { jsx } from "@emotion/react";
 import { observer } from "mobx-react";
-import { React, useState } from "react";
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import "./searchBox.css";
 import storeInstance from "../../store/store";
 
 const SearchBox = observer(() => {
@@ -20,21 +22,48 @@ const SearchBox = observer(() => {
 
   const handleChange = (e) => {
     e.preventDefault();
- 
+
     setSearchWord(e.target.value.trim());
   };
 
   return (
     <form onSubmit={(e) => submitForm(e)}>
-      <div className="search">
+      <div
+        css={{ width: "100%", display: "flex", justifyContent: "space-between" }}
+        className="search"
+      >
         <input
+          css={{
+            borderRadius: "5px",
+            boxShadow: "inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1)",
+            width: "100%",
+            padding: "10px",
+            outline: "0",
+          }}
           type="text"
           value={searchWord}
           placeholder="Search..."
           onChange={handleChange}
         />
-        <button>
-         <FaSearch size="20px" />
+        <button
+          css={{
+            padding: "15px 0",
+            width: "25%",
+            backgroundColor: "#ae9cff",
+            border: "solid 1px black",
+            outline: "none",
+            color: "white",
+            borderRadius: "5px",
+            boxShadow: "inset 1px 1px 2px 0 rgba(0, 0, 0, 0.1)",
+            "&:hover": {
+              cursor: "pointer",
+            },
+            "&:focus": {
+              outline: "none",
+            },
+          }}
+        >
+          <FaSearch size="20px" />
         </button>
       </div>
     </form>
