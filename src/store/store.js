@@ -5,7 +5,7 @@ import { wordsArray } from "./dictService";
 class Store {
   wordList = wordsArray;
   currentWord = "";
-  currentWordDef = [];
+  currentWordDef = "";
 
   updateWord(newWord) {
     this.currentWord = newWord;
@@ -15,12 +15,13 @@ class Store {
     this.currentWordDef = defList;
   }
 
-  get wordsCount() {
+  wordsCount() {
     return this.currentWord.length;
   }
 
   get startLetterCount() {
-    const re = new RegExp(`^${this.currentWord}`, "i");
+    const re = new RegExp(`^${this.currentWord}`);
+
     return this.wordList.filter((d) => re.test(d)).length ?? 0;
   }
 
@@ -30,18 +31,20 @@ class Store {
   }
 
   get timesIncludedCount() {
-    let len = 0;
-    const re = new RegExp(this.currentWord, "i");
+    let counter = 0;
+
     this.wordList.forEach((element) => {
-      if (element.match(re)) {
-        len += element.match(re).length;
+      if (element.includes(this.currentWord)) {
+        counter++;
       }
     });
-    return len;
+    return counter;
   }
 
   get repeatedLetterCount() {
-    return this.wordList.filter((d) => d.match("^.*(.)\\1{1}.*$")).length ?? 0;
+    
+    
+    return 100; //this.wordList.filter((d) => d.match("^.*(.)\\1{1}.*$")).length ?? 0;
   }
 
   constructor() {
