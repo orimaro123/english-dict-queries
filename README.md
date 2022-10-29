@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# English dictionary search app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A search app which lets you query against an offline English dictionary.
+The search is done with a debouncer.
+The app states are managed with Mobx and the css styling is done with Emotion.sh.
 
 ## Available Scripts
 
