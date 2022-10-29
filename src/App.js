@@ -1,16 +1,11 @@
-import Results from "./components/results/Results";
-import Top from "./components/top/Top";
-import storeInstance from "./store/store";
+import { Results } from "./components/Results";
+import { Header } from "./components/Header";
 import { observer } from "mobx-react";
 
-const App = observer (()=> {
-  
-  return (
+export const App = observer (()=> (
     <div style={{ backgroundColor: "	#f8f8ff", height: "100vh" }}>
-      <Top />
-      {storeInstance.currentWord.length > 0 ? (<Results />): <div>Enter a word or a letter you would like to check</div>}
+      <Header />
+      <Results />
     </div>
-  );
-})
-
-export default App;
+  )
+)
