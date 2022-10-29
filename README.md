@@ -8,10 +8,10 @@ The app states are managed with Mobx and the css styling is done with Emotion.sh
 
 Use the search bar to check the following queries:
 
-### How many words start with the letter?
-### How many times does the letter appear in the dictionary?
-### How many words end with the letter ?
-### How many words have the same letter repeated in conjunction?
+#### How many words start with the letter?
+#### How many times does the letter appear in the dictionary?
+#### How many words end with the letter ?
+#### How many words have the same letter repeated in conjunction?
 
 
 ## Getting started
