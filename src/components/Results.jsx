@@ -31,17 +31,20 @@ export const Results = observer(() => (
           ) : (
             <div>
               <h1>
-                {storeInstance.currentWord} Not found{" "}
+                {storeInstance.currentWord.toUpperCase()} Not found
                 <VscError style={{ marginLeft: "2px" }} />
               </h1>
 
-              <span>Please search a valid word</span>
+              <span style={{ fontWeight: "bold" }}>Please search a valid word</span>
             </div>
           )}
         </article>
       ) : (
-        <div style={{ marginTop: "50px" }}>
-          Enter a word or a letter you would like to check
+        <div css={sectionCss}>
+          <h1>
+            <p> Hi there! </p>
+            <p style={{ marginTop:"10px" }}>Enter a word or a letter you would like to check</p>
+          </h1>
         </div>
       )}
     </div>

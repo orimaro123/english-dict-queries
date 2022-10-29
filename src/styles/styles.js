@@ -32,9 +32,7 @@ export const sectionCss = css({
   marginTop: "25px",
   display: "flex",
   justifyContent: "center",
-  width:"50%",
- 
+  width: "70%",
   boxShadow: "0 10px 30px 0 rgba(0,0,0,0.5)",
-
   padding: "60px 100px 60px 100px",
 });

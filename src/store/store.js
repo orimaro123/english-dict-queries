@@ -15,7 +15,7 @@ class Store {
     this.timesAppeared = this.timesIncludedCount();
     this.startAppeared = this.startLetterCount();
     this.endAppeared = this.endLetterCount();
-    this.repeatedCount = this.timesIncludedCount();
+    this.repeatedCount = this.repeatedLetterCount();
   }
 
   wordsCount() {
