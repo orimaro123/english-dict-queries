@@ -21,7 +21,7 @@ export const Results = observer(() => (
         justifyItems: "center",
         justifyContent: "center",
         justifySelf: "center",
-        width: "500px",
+        width: "600px",
       }}
     >
       {storeInstance.currentWord.length > 0 ? (
@@ -43,7 +43,9 @@ export const Results = observer(() => (
         <div css={sectionCss}>
           <h1>
             <p> Hi there! </p>
-            <p style={{ marginTop:"10px" }}>Enter a word or a letter you would like to check</p>
+            <p style={{ marginTop: "10px" }}>
+              Enter a word or a letter you would like to check
+            </p>
           </h1>
         </div>
       )}

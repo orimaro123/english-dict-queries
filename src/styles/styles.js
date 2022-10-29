@@ -31,8 +31,8 @@ export const headerCss = css({
 export const sectionCss = css({
   marginTop: "25px",
   display: "flex",
-  justifyContent: "center",
+  justifyContent: "left",
   width: "60%",
   boxShadow: "0 10px 30px 0 rgba(0,0,0,0.5)",
-  padding: "60px 100px 60px 60px",
+  padding: "60px 60px 60px 60px",
 });
