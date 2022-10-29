@@ -9,7 +9,7 @@ import storeInstance from "../store/store";
 
 export const WordStats = observer(() => (
   <div>
-    <h2 style={{ fontSize: "25px", color: "#4183f2", marginBottom: "20px" }}>
+    <h2 style={{ fontSize: "25px",  marginBottom: "20px" }}>
       You are looking for
       <span style={{ textTransform: "uppercase" }}> "{storeInstance.currentWord}"</span>
     </h2>
