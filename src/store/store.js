@@ -6,10 +6,16 @@ class Store {
   wordList = wordsArray;
   currentWord = "";
   timesAppeared = 0;
+  startAppeared = 0;
+  endAppeared = 0;
+  repeatedCount = 0;
 
   updateWord(newWord) {
     this.currentWord = newWord;
     this.timesAppeared = this.timesIncludedCount();
+    this.startAppeared = this.startLetterCount();
+    this.endAppeared = this.endLetterCount();
+    this.repeatedCount = this.timesIncludedCount();
   }
 
   wordsCount() {

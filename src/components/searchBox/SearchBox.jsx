@@ -14,7 +14,7 @@ const SearchBox = observer(() => {
     e.preventDefault();
 
     if (!searchWord) {
-      alert("search term is required");
+      alert("Please enter a word to search");
     } else {
       storeInstance.updateWord(searchWord.toLowerCase());
       setSearchWord("");

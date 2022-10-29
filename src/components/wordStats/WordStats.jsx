@@ -14,13 +14,15 @@ const WordStats = observer(() => {
         You are looking for
         <span style={{ textTransform: "uppercase" }}> "{storeInstance.currentWord}"</span>
       </h2>
-      <div>
-        <h2 css={divTitleCss}>Queries</h2>
-     <Queries />
-      </div>
-      <div>
-        <h2 css={divTitleCss}>Stats</h2>
-       <PieChart />
+      <div style={{ display: "flex", flexDirection: "column", gap: "3em" }}>
+        <div>
+          <h2 css={divTitleCss}>Queries</h2>
+          <Queries />
+        </div>
+        <div>
+          <h2 css={divTitleCss}>Stats</h2>
+          <PieChart />
+        </div>
       </div>
     </article>
   );

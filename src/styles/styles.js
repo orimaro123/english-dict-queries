@@ -38,9 +38,7 @@ export const buttonCss = css({
 });
 
 export const searchDivCss = css({
-  width: "100%",
   display: "flex",
-  justifyContent: "space-between",
 });
 
 export const headerCss = css({
@@ -55,16 +53,18 @@ export const headerCss = css({
 
 export const sectionCss = css({
   display: "flex",
-  justifyContent: "left",
+ 
   marginTop: "25px",
 
   boxShadow: "0 10px 30px 0 rgba(0,0,0,0.5)",
+  padding: "0 6em", width: "30rem", height: "35rem"
 });
 
 export const articleCss = css({
   display: "flex",
   flexDirection: "column",
-  justifyContent: "flex-start",
+
   gap: "2rem",
-  marginTop: "15px",
+  marginTop: "18px",
+  marginLeft:"20px"
 });
