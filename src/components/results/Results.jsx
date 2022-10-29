@@ -2,29 +2,22 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/react";
 import { observer } from "mobx-react";
-import Queries from "../queries/Queries";
+import { sectionCss } from "../../styles/styles";
+
+import WordStats from "../wordStats/WordStats";
 import storeInstance from "../../store/store";
 
-import Chart from "../pieChart/PieChart";
-
 const Results = observer(() => {
+  console.log(storeInstance.times)
   return (
-    <section
-      css={{
-        marginTop: "10px",
-        display: "flex",
-        flexDirection: "row",
-        justifyItems: "center",
-        width: "100%",
-
-        "&:hover": {
-          boxShadow: "0 8px 10px 1px rgba(22,0,0,0.9)",
-        },
-      }}
-    >
-      <article>{storeInstance.currentWord && <Queries />}</article>
-      <aside>{storeInstance.currentWord.length > 0 && <Chart />}</aside>
-    </section>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <section
+        css={sectionCss}
+        style={{ padding: "0 6em", width: "30rem", height: "35rem" }}
+      >
+       {storeInstance.timesAppeared >0 ?<WordStats/>: <div>Please enter a valid</div>}
+      </section>
+    </div>
   );
 });
 

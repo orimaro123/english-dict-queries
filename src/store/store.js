@@ -1,18 +1,15 @@
 import { makeAutoObservable } from "mobx";
 
-import { wordsArray } from "../service/dictService";
+const wordsArray = require("an-array-of-english-words");
 
 class Store {
   wordList = wordsArray;
   currentWord = "";
-  currentWordDef = "";
+  timesAppeared = 0;
 
   updateWord(newWord) {
     this.currentWord = newWord;
-  }
-
-  updateCurrentDefinition(defList) {
-    this.currentWordDef = defList;
+    this.timesAppeared = this.timesIncludedCount();
   }
 
   wordsCount() {
@@ -38,6 +35,7 @@ class Store {
         counter++;
       }
     });
+
     return counter;
   }
 

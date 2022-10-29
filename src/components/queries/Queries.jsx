@@ -1,8 +1,8 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx } from "@emotion/react";
+import { wordCss } from "../../styles/styles";
 import { observer } from "mobx-react";
-import { titleCss } from "../../styles/title";
 
 import storeInstance from "../../store/store";
 
@@ -11,21 +11,23 @@ const Queries = observer(() => {
     <div>
       {storeInstance.currentWord && (
         <div>
-          <h2 css={titleCss}>Queries</h2>
           <div>
-            Words that start with {storeInstance.currentWord}:
-            {storeInstance.startLetterCount()}
+            <span css={wordCss}>{storeInstance.startLetterCount()}</span> words start with
+            "<span css={wordCss}>{storeInstance.currentWord}</span>"
           </div>
           <div>
-            {storeInstance.endLetterCount()} words end with "{storeInstance.currentWord}"{" "}
+            <span css={wordCss}>{storeInstance.endLetterCount()}</span> words end with "
+            <span css={wordCss}>{storeInstance.currentWord}</span>"
           </div>
           <div>
-            {storeInstance.currentWord} appears in dictionary:{" "}
-            {storeInstance.timesIncludedCount()} times
+            <span css={wordCss}>{storeInstance.timesIncludedCount()}</span> "
+            <span css={wordCss}>{storeInstance.currentWord}</span>" appear in the
+            dictionary
           </div>
           <div>
-            Words that have the same letter repeated in conjunction:
-            {storeInstance.repeatedLetterCount()}
+            <span css={wordCss}>{storeInstance.repeatedLetterCount()}</span> words have "
+            <span css={wordCss}>{storeInstance.currentWord}</span>" repeated in
+            conjunction
           </div>
         </div>
       )}
