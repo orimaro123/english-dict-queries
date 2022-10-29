@@ -11,23 +11,23 @@ export const Queries = observer(() => (
       {storeInstance.currentWord && (
         <div>
           <div>
-            <span css={wordCss}>{storeInstance.startLetterCount()}</span> words start with
+            <span css={wordCss}>{storeInstance.startAppeared}</span> words start with
             <span css={wordCss}>"{storeInstance.currentWord}"</span>
           </div>
           <div>
-            <span css={wordCss}>{storeInstance.endLetterCount()}</span> words end with
+            <span css={wordCss}>{storeInstance.endAppeared}</span> words end with
             <span css={wordCss}>"{storeInstance.currentWord}"</span>
           </div>
           <div>
-            <span css={wordCss}>{storeInstance.timesIncludedCount()}</span>"
-            {/*put text inside element*/}
-            <span css={wordCss}>{storeInstance.currentWord}</span>" appear in the
+            <span css={wordCss}>{storeInstance.timesAppeared}</span>
+          
+            <span css={wordCss}> "{storeInstance.currentWord}"</span> appear in the
             dictionary
           </div>
           <div>
-            {/*put text inside element*/}
-            <span css={wordCss}>{storeInstance.repeatedLetterCount()}</span> words have "
-            <span css={wordCss}>{storeInstance.currentWord}</span>" repeated in
+ 
+            <span css={wordCss}>{storeInstance.repeatedCount}</span> words have 
+            <span css={wordCss}> "{storeInstance.currentWord}"</span> repeated in
             conjunction
           </div>
         </div>
@@ -35,4 +35,5 @@ export const Queries = observer(() => (
     </div>
   )
 );
+
 

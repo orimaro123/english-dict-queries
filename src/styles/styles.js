@@ -29,18 +29,12 @@ export const headerCss = css({
 });
 
 export const sectionCss = css({
-  display: "flex",
-  alignItems: "center",
   marginTop: "25px",
-  justifyContent: "center",
-  boxShadow: "0 10px 30px 0 rgba(0,0,0,0.5)",
-  height: "fit-content",
-  padding: '60px 100px 60px 100px',
-
-});
-
-export const articleCss = css({
   display: "flex",
-  flexDirection: "column",
-  gap: "1rem",
+  justifyContent: "center",
+  width:"50%",
+ 
+  boxShadow: "0 10px 30px 0 rgba(0,0,0,0.5)",
+
+  padding: "60px 100px 60px 100px",
 });

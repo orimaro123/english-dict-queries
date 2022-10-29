@@ -5,12 +5,11 @@ import { observer } from "mobx-react";
 import { useRef, useState, useEffect } from "react";
 import { inputCss } from "../styles/styles";
 import storeInstance from "../store/store";
-import { debounce } from 'lodash';
+import { debounce } from "lodash";
 
 export const Search = observer(() => {
   const debouncedSearch = useRef(
-    debounce(value => {
- 
+    debounce((value) => {
       storeInstance.updateWord(value);
     }, 1000)
   ).current;
@@ -26,13 +25,6 @@ export const Search = observer(() => {
   }, [debouncedSearch]);
 
   return (
-    // <div>
-        <input
-          css={inputCss}
-          type="text"
-          placeholder="Search..."
-          onChange={handleChange}
-        />
-    // </div>
+    <input css={inputCss} type="text" placeholder="Search..." onChange={handleChange} />
   );
 });

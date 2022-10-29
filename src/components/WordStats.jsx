@@ -2,15 +2,14 @@
 /** @jsx jsx */
 import { jsx } from "@emotion/react";
 import { observer } from "mobx-react";
-import { divTitleCss, articleCss } from "../styles/styles";
+import { divTitleCss } from "../styles/styles";
 import { Queries } from "./Queries";
-import { PieChart } from "./Chart";
+import PieChart from "./Chart";
 import storeInstance from "../store/store";
 
 export const WordStats = observer(() => (
-  // <article css={articleCss}>
   <div>
-    <h2 style={{ fontSize: "25px", color: "#4183f2" }}>
+    <h2 style={{ fontSize: "25px", color: "#4183f2", marginBottom: "20px" }}>
       You are looking for
       <span style={{ textTransform: "uppercase" }}> "{storeInstance.currentWord}"</span>
     </h2>
@@ -23,5 +22,4 @@ export const WordStats = observer(() => (
       </div>
     </div>
   </div>
-  // </article>
 ));
