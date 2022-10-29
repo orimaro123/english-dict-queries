@@ -3,11 +3,10 @@ import { Chart } from "react-google-charts";
 import storeInstance from "../store/store";
 
 const PieChart = () => {
-  let endsWith = storeInstance.endsWith;
+  let endsWith = storeInstance.endAppeared;
   let startWith = storeInstance.startAppeared;
   let repeated = storeInstance.repeatedCount;
   let appearance = storeInstance.timesAppeared;
-
 
   const data = [
     [`${storeInstance.currentWord}`, "stats"],
