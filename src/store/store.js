@@ -35,11 +35,9 @@ class Store {
 
   timesIncludedCount() {
     let counter = 0;
-    let count = 0;
+
     this.wordList.forEach((element) => {
-      
       if (element.includes(this.currentWord)) {
-        //count += (element.match(/element/g) || []).length;
         counter++;
       }
     });
