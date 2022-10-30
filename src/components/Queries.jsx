@@ -19,10 +19,9 @@ export const Queries = observer(() => (
             <span css={wordCss}>"{storeInstance.currentWord}"</span>
           </div>
           <div>
-            <span css={wordCss}>{storeInstance.timesAppeared}</span>
+            
           
-            <span css={wordCss}> "{storeInstance.currentWord}"</span> appear in the
-            dictionary
+            <span css={wordCss}> "{storeInstance.currentWord}"</span> appear in <span css={wordCss}>{storeInstance.timesAppeared}</span> words
           </div>
           <div>
  
